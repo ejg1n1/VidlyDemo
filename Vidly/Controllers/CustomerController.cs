@@ -37,14 +37,12 @@ namespace Vidly.Controllers
         {
             CustomerViewModel customerViewModel = new CustomerViewModel();
 
-            var customer = _context.Customers.SingleOrDefault(e => e.Id == index);
+            var customer = _context.Customers.Include(e => e.MembershipType).SingleOrDefault(e => e.Id == index);
 
             if (customer == null)
                 return HttpNotFound();
 
-            customerViewModel.Name = customer.Name;
-
-            return View(customerViewModel);
+            return View(customer);
         }
     }
 }
