@@ -1,0 +1,19 @@
+﻿@model List<Vidly.Models.Movies>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Movies</h2>
+
+<table style="width:100%">
+    <tr>
+        <th>Movies</th>
+    </tr>
+    @foreach (var movie in @Model)
+    {
+        <tr>
+            <td>@movie.Name</td>
+        </tr>
+    }
+
+</table>
